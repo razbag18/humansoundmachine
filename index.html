@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Human Sound Machine</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+</head>
+<body>
+  <h1 class="title">Human Sound Machine</h1>
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">scream</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">kiss</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">howl</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">fart</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">gasp</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">sneeze</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snore</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">woo</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">laugh</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="http://www.wavsource.com/snds_2018-06-03_5106726768923853/sfx/scream2.wav">
+  </audio>
+  <audio data-key="83" src="http://www.wavsource.com/snds_2018-06-03_5106726768923853/sfx/kiss_x.wav">
+  </audio>
+  <audio data-key="68" src="http://www.wavsource.com/snds_2018-06-03_5106726768923853/sfx/scream_male.wav">
+  </audio>
+  <audio data-key="70" src="http://www.wavsource.com/snds_2018-06-03_5106726768923853/sfx/fart_z.wav">
+  </audio>
+  <audio data-key="71" src="http://www.wavsource.com/snds_2018-06-03_5106726768923853/sfx/gasp_x.wav">
+  </audio>
+  <audio data-key="72" src="http://www.wavsource.com/snds_2018-06-03_5106726768923853/sfx/sneeze_man.wav">
+  </audio>
+  <audio data-key="74" src="http://www.wavsource.com/snds_2018-06-03_5106726768923853/sfx/snore_x.wav">
+  </audio>
+  <audio data-key="75" src="http://www.wavsource.com/snds_2018-06-03_5106726768923853/sfx/woow_x.wav">
+  </audio>
+  <audio data-key="76" src="http://www.wavsource.com/snds_2018-06-03_5106726768923853/sfx/laugh_x.wav">
+  </audio>
+
+  <footer class="instructions">Press the corresponding letters on your keyboard to active sound effect</footer>
+
+<script>
+  
+  
+  function playSound(e){
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+    if(!audio) return;
+    audio.currentTime = 0;
+    audio.play();
+    key.classList.add('playing')
+    }
+
+    function removeTransition(e){
+      if(e.propertyName !== 'transform') return;
+      this.classList.remove('playing')
+    }
+
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition) )
+    window.addEventListener('keydown', playSound) 
+</script>
+
+
+</body>
+</html>

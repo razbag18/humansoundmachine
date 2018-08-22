@@ -1,0 +1,72 @@
+html {
+  font-size: 10px;
+  background: url(https://www.pixelstalk.net/wp-content/uploads/2016/06/Free-Soundwave-HD-Photos-Download-768x432.jpg) bottom center;
+  background-size: cover;
+}
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border: .4rem solid black;
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all .07s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
+  position: relative;
+}
+
+.playing {
+  transform: scale(1.5);
+  border-color: mistyrose;
+  box-shadow: 0 0 1rem mistyrose;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: mistyrose;
+}
+
+.title{
+  font-family: 'Comfortaa', cursive;
+  font-size: 8vh;
+  position: absolute;
+  text-transform: uppercase;
+  color: mistyrose;
+  top: 4.5vh;
+  width: 100vw;
+  left: 20%;
+}
+
+.instructions{
+  color: mistyrose;
+  font-family: 'Comfortaa', cursive;
+  text-transform: uppercase;
+  font-size: 2vh;
+  position: absolute;
+  bottom: 4.5vh;
+  left: 25vw;
+}
